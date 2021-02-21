@@ -1,0 +1,17 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HealthIndicator : MonoBehaviour
+{
+    [SerializeField] private Slider _healthIndicator;
+    [SerializeField] private float _timeToChangeHealthValue;
+    [SerializeField] private HealthComponent _healthComponent;
+
+    private void Update()
+    {
+        if (_healthIndicator.value != _healthComponent.CurrentHealth)
+        {
+            _healthIndicator.value = Mathf.MoveTowards(_healthIndicator.value, _healthComponent.CurrentHealth, _timeToChangeHealthValue * Time.deltaTime);
+        }
+    }
+}
