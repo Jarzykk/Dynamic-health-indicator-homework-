@@ -7,11 +7,21 @@ public class HealthIndicator : MonoBehaviour
     [SerializeField] private float _timeToChangeHealthValue;
     [SerializeField] private HealthComponent _healthComponent;
 
+    private void Start()
+    {
+        this.enabled = false;
+    }
+
     private void Update()
     {
         if (_healthIndicator.value != _healthComponent.CurrentHealth)
-        {
             _healthIndicator.value = Mathf.MoveTowards(_healthIndicator.value, _healthComponent.CurrentHealth, _timeToChangeHealthValue * Time.deltaTime);
-        }
+        else
+            this.enabled = false;
+    }
+
+    public void ChangeHealth()
+    {
+        this.enabled = true;
     }
 }
