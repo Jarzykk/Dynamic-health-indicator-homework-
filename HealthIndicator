@@ -20,7 +20,7 @@ public class HealthIndicator : MonoBehaviour
             this.enabled = false;
     }
 
-    public void ChangeHealth()
+    public void ChangeHealthOnIndicator()
     {
         this.enabled = true;
     }
